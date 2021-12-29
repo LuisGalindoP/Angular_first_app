@@ -1,0 +1,18 @@
+
+
+<!-- STYLING ELEMENTS DYNAMICALLY WITH ngStyle  -->
+<!-- <h4
+  [ngStyle]="{
+              backgroundColor: getColor(),
+              color:'white'
+              }">
+  {{'Server'}} id is: {{serverId}}, status...{{getServerStatus()}}
+</h4> -->
+
+<!-- ADD OR REMOVE CSS CLASSES DYNAMICALLY WITH ngClass  -->
+<h4
+  [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: serverStatus === 'online'}">
+  {{'Server'}} id is: {{serverId}}, status...{{getServerStatus()}}
+</h4>
+

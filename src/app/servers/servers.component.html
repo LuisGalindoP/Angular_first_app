@@ -1,0 +1,59 @@
+
+<div class="container col-sm-5">
+  <div>
+    <label>User Name</label>
+      <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="userName">
+      <p>{{ userName }}</p>
+      <button class="btn btn-primary"
+      [disabled] = "userName === ''"
+      (click)="userName = ''">Reset name</button>
+  </div>
+
+  <div>
+    <label>Server Name</label>
+
+    <!-- ONE WAY DATA BINDING -->
+
+    <!-- <input type="text"
+      class="form-control"
+      (input)="onUpdateServerName($event)"> -->
+
+
+      <!-- TWO WAY DATABIND -->
+      <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="serverName">
+
+      <button class="btn btn-primary"
+      [disabled] = "!allowNewServer"
+      (click)="onCreateServer()">Add Server</button>
+
+    </div>
+    <!-- IF ELSE CONDITIONS USING ngIf -->
+    <div>
+      <p *ngIf="serverCreated">Server created, name: {{serverName}}</p>
+
+      <!-- ADDING SERVER COMPONENT WITH ngFor -->
+    </div>
+    <app-server *ngFor="let server of servers"></app-server>
+
+    <!-- EXERCISE -->
+    <div class="mt-10">
+      <button class="btn btn-danger" (click)="showMessage()">Display Details</button>
+
+      <p *ngIf="buttonStatus">This is the message to show shit</p>
+
+      <div
+        *ngFor="let mes of buttonClicks"
+        [ngStyle]="{backgroundColor: mes >= 5 ? 'blue':'transparent'}"
+        [ngClass]="{white: mes >= 5}">
+        {{mes}}
+      </div>
+  </div>
+      <!-- [ngStyle]="{backgroundColor: getColor()}" -->
+</div>
+
